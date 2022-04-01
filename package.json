@@ -1,0 +1,37 @@
+{
+  "name": "koa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "set NODE_ENV=local&& mocha ./test/logic/account/account.test.js",
+    "prod": "set NODE_ENV=prod&& nodemon ./src/index.js",
+    "dev": "set NODE_ENV=dev&& nodemon ./src/index.js",
+    "local": "set NODE_ENV=local&& nodemon ./src/index.js",
+    "mocha": "set NODE_ENV=dev&& mocha ./authaccount.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.1.0",
+    "cos-nodejs-sdk-v5": "^2.11.6",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1",
+    "koa": "^2.13.4",
+    "koa-body": "^4.2.0",
+    "koa-cors": "^0.0.16",
+    "koa-jwt": "^4.0.3",
+    "koa-router": "^10.1.1",
+    "koa-sslify": "^5.0.0",
+    "koa-static": "^5.0.0",
+    "lodash": "^4.17.21",
+    "mocha": "^9.2.2",
+    "moment": "^2.29.1",
+    "node-schedule": "^2.1.0",
+    "nodemon": "^2.0.15",
+    "require-all": "^3.0.0",
+    "supertest": "^6.2.2",
+    "tencentcloud-sdk-nodejs": "^4.0.301",
+    "uuid": "^8.3.2"
+  }
+}

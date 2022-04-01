@@ -1,0 +1,394 @@
+[
+  {
+    "id": "15",
+    "code": "15",
+    "name": "土家族",
+    "spell": "Tujia",
+    "letter": "TJ"
+  },
+  {
+    "id": "30",
+    "code": "30",
+    "name": "土族",
+    "spell": "Tu",
+    "letter": "TU"
+  },
+  {
+    "id": "54",
+    "code": "54",
+    "name": "门巴族",
+    "spell": "Monba",
+    "letter": "MB"
+  },
+  {
+    "id": "25",
+    "code": "25",
+    "name": "水族",
+    "spell": "Sui",
+    "letter": "SU"
+  },
+  {
+    "id": "36",
+    "code": "36",
+    "name": "毛南族",
+    "spell": "Maonan",
+    "letter": "MN"
+  },
+  {
+    "id": "43",
+    "code": "43",
+    "name": "乌孜别克族",
+    "spell": "Uzbek",
+    "letter": "UZ"
+  },
+  {
+    "id": "09",
+    "code": "09",
+    "name": "布依族",
+    "spell": "Buyei",
+    "letter": "BY"
+  },
+  {
+    "id": "34",
+    "code": "34",
+    "name": "布朗族",
+    "spell": "Blang",
+    "letter": "BL"
+  },
+  {
+    "id": "26",
+    "code": "26",
+    "name": "东乡族",
+    "spell": "Dongxiang",
+    "letter": "DX"
+  },
+  {
+    "id": "37",
+    "code": "37",
+    "name": "仡佬族",
+    "spell": "Gelao",
+    "letter": "GL"
+  },
+  {
+    "id": "32",
+    "code": "32",
+    "name": "仫佬族",
+    "spell": "Mulao",
+    "letter": "ML"
+  },
+  {
+    "id": "14",
+    "code": "14",
+    "name": "白族",
+    "spell": "Bai",
+    "letter": "BA"
+  },
+  {
+    "id": "01",
+    "code": "01",
+    "name": "汉族",
+    "spell": "Han",
+    "letter": "HA"
+  },
+  {
+    "id": "31",
+    "code": "31",
+    "name": "达斡尔族",
+    "spell": "Daur",
+    "letter": "DU"
+  },
+  {
+    "id": "03",
+    "code": "03",
+    "name": "回族",
+    "spell": "Hui",
+    "letter": "HU"
+  },
+  {
+    "id": "21",
+    "code": "21",
+    "name": "佤族",
+    "spell": "Va",
+    "letter": "VA"
+  },
+  {
+    "id": "08",
+    "code": "08",
+    "name": "壮族",
+    "spell": "Zhuang",
+    "letter": "ZH"
+  },
+  {
+    "id": "33",
+    "code": "33",
+    "name": "羌族",
+    "spell": "Qiang",
+    "letter": "QI"
+  },
+  {
+    "id": "39",
+    "code": "39",
+    "name": "阿昌族",
+    "spell": "Achang",
+    "letter": "AC"
+  },
+  {
+    "id": "27",
+    "code": "27",
+    "name": "纳西族",
+    "spell": "Naxi",
+    "letter": "NX"
+  },
+  {
+    "id": "24",
+    "code": "24",
+    "name": "拉祜族",
+    "spell": "Lahu",
+    "letter": "LH"
+  },
+  {
+    "id": "06",
+    "code": "06",
+    "name": "苗族",
+    "spell": "Miao",
+    "letter": "MH"
+  },
+  {
+    "id": "12",
+    "code": "12",
+    "name": "侗族",
+    "spell": "Dong",
+    "letter": "DO"
+  },
+  {
+    "id": "49",
+    "code": "49",
+    "name": "京族",
+    "spell": "Gin",
+    "letter": "GI"
+  },
+  {
+    "id": "29",
+    "code": "29",
+    "name": "柯尔克孜族",
+    "spell": "Kirgiz",
+    "letter": "KG"
+  },
+  {
+    "id": "16",
+    "code": "16",
+    "name": "哈尼族",
+    "spell": "Hani",
+    "letter": "HN"
+  },
+  {
+    "id": "17",
+    "code": "17",
+    "name": "哈萨克族",
+    "spell": "Kazak",
+    "letter": "KZ"
+  },
+  {
+    "id": "47",
+    "code": "47",
+    "name": "保安族",
+    "spell": "Bonan",
+    "letter": "BN"
+  },
+  {
+    "id": "44",
+    "code": "44",
+    "name": "俄罗斯族",
+    "spell": "Russ",
+    "letter": "RS"
+  },
+  {
+    "id": "51",
+    "code": "51",
+    "name": "独龙族",
+    "spell": "Derung",
+    "letter": "DR"
+  },
+  {
+    "id": "42",
+    "code": "42",
+    "name": "怒族",
+    "spell": "Nu",
+    "letter": "NU"
+  },
+  {
+    "id": "55",
+    "code": "55",
+    "name": "珞巴族",
+    "spell": "Lhoba",
+    "letter": "LB"
+  },
+  {
+    "id": "23",
+    "code": "23",
+    "name": "高山族",
+    "spell": "Gaoshan",
+    "letter": "GS"
+  },
+  {
+    "id": "56",
+    "code": "56",
+    "name": "基诺族",
+    "spell": "Jino",
+    "letter": "JN"
+  },
+  {
+    "id": "52",
+    "code": "52",
+    "name": "鄂伦春族",
+    "spell": "Oroqen",
+    "letter": "OR"
+  },
+  {
+    "id": "45",
+    "code": "45",
+    "name": "鄂温克族",
+    "spell": "Ewenki",
+    "letter": "Ew"
+  },
+  {
+    "id": "05",
+    "code": "05",
+    "name": "维吾尔族",
+    "spell": "Uygur",
+    "letter": "UG"
+  },
+  {
+    "id": "41",
+    "code": "41",
+    "name": "塔吉克族",
+    "spell": "Tajik",
+    "letter": "TA"
+  },
+  {
+    "id": "50",
+    "code": "50",
+    "name": "塔塔尔族",
+    "spell": "Tatar",
+    "letter": "TT"
+  },
+  {
+    "id": "10",
+    "code": "10",
+    "name": "朝鲜族（右上角 1） ）",
+    "spell": "Chosen",
+    "letter": "CS"
+  },
+  {
+    "id": "28",
+    "code": "28",
+    "name": "景颇族",
+    "spell": "Jingpo",
+    "letter": "JP"
+  },
+  {
+    "id": "18",
+    "code": "18",
+    "name": "傣族",
+    "spell": "Dai",
+    "letter": "DA"
+  },
+  {
+    "id": "20",
+    "code": "20",
+    "name": "傈僳族",
+    "spell": "Lisu",
+    "letter": "LS"
+  },
+  {
+    "id": "22",
+    "code": "22",
+    "name": "畲族",
+    "spell": "She",
+    "letter": "SH"
+  },
+  {
+    "id": "40",
+    "code": "40",
+    "name": "普米族",
+    "spell": "Purmi",
+    "letter": "PM"
+  },
+  {
+    "id": "48",
+    "code": "48",
+    "name": "裕固族",
+    "spell": "Yugur",
+    "letter": "YG"
+  },
+  {
+    "id": "02",
+    "code": "02",
+    "name": "蒙古族",
+    "spell": "Mongol",
+    "letter": "MG"
+  },
+  {
+    "id": "38",
+    "code": "38",
+    "name": "锡伯族",
+    "spell": "Xibe",
+    "letter": "XB"
+  },
+  {
+    "id": "11",
+    "code": "11",
+    "name": "满族",
+    "spell": "Man",
+    "letter": "MA"
+  },
+  {
+    "id": "13",
+    "code": "13",
+    "name": "瑶族",
+    "spell": "Yao",
+    "letter": "YA"
+  },
+  {
+    "id": "53",
+    "code": "53",
+    "name": "赫哲族",
+    "spell": "Hezhen",
+    "letter": "HZ"
+  },
+  {
+    "id": "35",
+    "code": "35",
+    "name": "撒拉族",
+    "spell": "Salar",
+    "letter": "SL"
+  },
+  {
+    "id": "46",
+    "code": "46",
+    "name": "德昂族",
+    "spell": "Deang",
+    "letter": "DE"
+  },
+  {
+    "id": "19",
+    "code": "19",
+    "name": "黎族",
+    "spell": "Li",
+    "letter": "LI"
+  },
+  {
+    "id": "04",
+    "code": "04",
+    "name": "藏族（右上角 2） ）",
+    "spell": "Zang",
+    "letter": "ZA"
+  },
+  {
+    "id": "07",
+    "code": "07",
+    "name": "彝族",
+    "spell": "Yi",
+    "letter": "Y1"
+  }
+]
