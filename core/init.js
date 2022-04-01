@@ -8,11 +8,11 @@ async function run() {
   try {
     const requireAll = require("require-all");
     const routes = requireAll(path.resolve(`./logic`));
-    lodash.mapKeys(routes, async (v) => {
+    await lodash.mapKeys(routes, async (v) => {
       await v.init();
     });
 
-    lodash.mapKeys(routes, async (v) => {
+    await lodash.mapKeys(routes, async (v) => {
       await v.initData();
     });
   } catch (err) {

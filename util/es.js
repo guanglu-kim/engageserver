@@ -3,6 +3,9 @@ const fs = require(`fs`);
 function getESClient() {
   if (es_client) return es_client;
   let elasticsearch = require("@elastic/elasticsearch");
+  console.log(`初始化es对象`);
+  console.log(process.env.ES_USERNAME);
+  console.log(process.env.ES_PASSWORD);
   let client = new elasticsearch.Client({
     node: process.env.ES_URL,
     auth: {
