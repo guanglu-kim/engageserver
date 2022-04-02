@@ -9,12 +9,12 @@ registry.cn-beijing.aliyuncs.com/know/punchserver:0.1
 
 -- cc
 docker run -d \
-    -p 3001:3001 \
-    -p 3002:3002 \
+    -p 3004:3004 \
+    -p 3005:3005 \
     --restart=always \
-    --name punchserver \
+    --name server \
     -e "NODE_ENV=prod" \
-registry.cn-hangzhou.aliyuncs.com/punch/server:0.1
+registry-vpc.cn-qingdao.aliyuncs.com/know/enserver:0.1
 
 docker run -d \
     -p 3001:3001 \

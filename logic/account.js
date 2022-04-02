@@ -28,6 +28,40 @@ async function init() {
     await es.index(index, value);
   });
 
+  event.sub(index, `${index}.put`, async (payload) => {
+    const { value } = payload;
+    const query = es.getQueryFilter({ account: value.account });
+    query.bool.must_not = [
+      {
+        query_string: {
+          default_field: `id`,
+          query: value.id,
+        },
+      },
+    ];
+
+    const tmp = Number(value.account);
+    if (tmp > 0)
+      return {
+        deny: true,
+        message: `不能使用数字建立账号`,
+      };
+
+    const ret = await es.getDocs(index, query);
+    if (ret.length > 0) {
+      return {
+        deny: true,
+        message: `账户重复`,
+      };
+    }
+    await es.index(index, value);
+  });
+
+  event.sub(index, `${index}.delete`, async (payload) => {
+    const { value } = payload;
+    await es.remove(index, value.id);
+  });
+
   event.sub(index, `${index}.password.put`, async (payload) => {
     console.log(`password`);
     const { value } = payload;
@@ -116,7 +150,9 @@ async function init() {
 
     for (let member of origin.members) {
       const doc = await es.get(`account`, member.id);
+      if(doc==undefined) continue;
       console.log(`doc`, doc);
+      if (!doc.orgs) doc.orgs = [];
       for (let org of doc.orgs) {
         console.log(`org`, org);
         if (org.id == origin.id) org.name = value.name;

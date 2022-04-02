@@ -23,8 +23,8 @@ router.post(`/`, async (ctx) => {
   // 错误处理
 
   if (!ret.success) {
+    console.log(ret);
     if (ret.deny) {
-      console.log(ret);
       util.send403(ctx, ret.message);
       return;
     } else {
@@ -63,8 +63,8 @@ router.put(`/`, async (ctx) => {
   // 错误处理
 
   if (!ret.success) {
+    console.log(ret);
     if (ret.deny) {
-      console.log(ret);
       util.send403(ctx, ret.message);
       return;
     } else {
@@ -98,7 +98,11 @@ router.put(`/password`, async (ctx) => {
   }
 
   const { traceId } = ctx.request.headers;
-  const ret = await event.pub(`${index}.password.put`, { origin, value: body }, traceId);
+  const ret = await event.pub(
+    `${index}.password.put`,
+    { origin, value: body },
+    traceId
+  );
 
   // 错误处理
 
@@ -189,7 +193,7 @@ router.get(`/leader`, async (ctx) => {
       },
     },
   ];
-  console.log(query.bool.filter)
+  console.log(query.bool.filter);
   const ret = await es.getDocs(index, query, sort);
   console.log(`leaders`, ret);
   util.send200(ctx, ret);
