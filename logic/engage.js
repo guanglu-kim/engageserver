@@ -53,26 +53,33 @@ async function init() {
             msg: `预约领导 ${item.target.name}`,
           });
         }
-
-        if (item.status == `confirm`) {
-          if (
-            item.confirm.start != doc.confirm.start ||
-            item.confirm.end != item.confirm.end
-          ) {
-            await push.send(JSON.parse(data).access_token, {
-              topic: item.creator.id,
-              title: "您的预约时间已调整",
-              msg: `预约领导 ${item.target.name} 预约时间 ${
-                moment(item.confirm.start).format(`hh:mm`) +
-                ` - ` +
-                moment(item.confirm.end).format(`hh:mm`)
-              }`,
-            });
-          }
-        }
-
-        // console.log(`sendData: `, JSON.parse(sendData));
       }
+      console.log(`item`);
+      console.log(item);
+      console.log(`doc`);
+      console.log(doc);
+
+      if (item.status == `confirm`) {
+        if (
+          item.confirm.start != doc.confirm.start ||
+          item.confirm.end != doc.confirm.end
+        ) {
+          console.log(`什么情况？`);
+          console.log(item);
+          await push.send(JSON.parse(data).access_token, {
+            topic: item.creator.id,
+            title: "您的预约时间已调整",
+            msg: `预约领导 ${item.target.name} 预约时间 ${
+              moment(item.confirm.start).format(`hh:mm`) +
+              ` - ` +
+              moment(item.confirm.end).format(`hh:mm`)
+            }`,
+          });
+        }
+      }
+
+      // console.log(`sendData: `, JSON.parse(sendData));
+
       if (item.status != `confirm`) item.status = `cancel`;
       await es.index(index, item);
     }
