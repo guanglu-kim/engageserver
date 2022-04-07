@@ -44,32 +44,28 @@ async function init() {
           await push.send(JSON.parse(data).access_token, {
             topic: item.creator.id,
             title: "您的预约已生效",
-            msg: `预约领导 ${item.target.name}`,
+            msg: `预约 ${item.target.name} 时间 ${
+              moment(item.confirm.start).format(`hh:mm`) +
+              ` - ` +
+              moment(item.confirm.end).format(`hh:mm`)
+            }`,
           });
         } else {
           await push.send(JSON.parse(data).access_token, {
             topic: item.creator.id,
             title: "您的预约已失效",
-            msg: `预约领导 ${item.target.name}`,
+            msg: `预约 ${item.target.name}`,
           });
         }
-      }
-      console.log(`item`);
-      console.log(item);
-      console.log(`doc`);
-      console.log(doc);
-
-      if (item.status == `confirm`) {
+      } else if (item.status == `confirm`) {
         if (
           item.confirm.start != doc.confirm.start ||
           item.confirm.end != doc.confirm.end
         ) {
-          console.log(`什么情况？`);
-          console.log(item);
           await push.send(JSON.parse(data).access_token, {
             topic: item.creator.id,
             title: "您的预约时间已调整",
-            msg: `预约领导 ${item.target.name} 预约时间 ${
+            msg: `预约 ${item.target.name} 时间 ${
               moment(item.confirm.start).format(`hh:mm`) +
               ` - ` +
               moment(item.confirm.end).format(`hh:mm`)
@@ -78,7 +74,65 @@ async function init() {
         }
       }
 
-      // console.log(`sendData: `, JSON.parse(sendData));
+      if (item.status != `confirm`) item.status = `cancel`;
+      await es.index(index, item);
+    }
+  });
+
+  event.sub(index, `${index}.special`, async (payload) => {
+    const { value } = payload;
+    const { engages } = value;
+    const reason = value.reason != `` ? reason : `特殊事件`;
+    const data = await push.postToken();
+    var once = true;
+
+    for (let item of engages) {
+      const doc = await es.get(`engage`, item.id);
+
+      if (once) {
+        await push.send(JSON.parse(data).access_token, {
+          topic: item.target.id,
+          title: "您的日程已排期",
+          msg: `${moment(item.confirm.start).format(`MM月DD日`)}`,
+        });
+        once = false;
+      }
+
+      // 状态发生变更 通知
+      if (doc.status != item.status) {
+        if (item.status == `confirm`) {
+          await push.send(JSON.parse(data).access_token, {
+            topic: item.creator.id,
+            title: "您的预约已生效",
+            msg: `预约 ${item.target.name} 时间 ${
+              moment(item.confirm.start).format(`hh:mm`) +
+              ` - ` +
+              moment(item.confirm.end).format(`hh:mm`)
+            }`,
+          });
+        } else {
+          await push.send(JSON.parse(data).access_token, {
+            topic: item.creator.id,
+            title: "您的预约已失效",
+            msg: `预约 ${item.target.name}`,
+          });
+        }
+      } else if (item.status == `confirm`) {
+        if (
+          item.confirm.start != doc.confirm.start ||
+          item.confirm.end != doc.confirm.end
+        ) {
+          await push.send(JSON.parse(data).access_token, {
+            topic: item.creator.id,
+            title: "您的预约时间已调整",
+            msg: `因${reason}您预约 ${item.target.name} 的时间调整为 ${
+              moment(item.confirm.start).format(`hh:mm`) +
+              ` - ` +
+              moment(item.confirm.end).format(`hh:mm`)
+            }`,
+          });
+        }
+      }
 
       if (item.status != `confirm`) item.status = `cancel`;
       await es.index(index, item);

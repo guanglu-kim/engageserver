@@ -106,6 +106,37 @@ router.post(`/schedule`, async (ctx) => {
   util.send200(ctx);
 });
 
+router.post(`/special`, async (ctx) => {
+  const { body } = ctx.request;
+
+  if (!body) {
+    util.send404(ctx, `缺少参数信息`);
+    return;
+  }
+
+  // 投递消息
+
+  const { traceId } = ctx.request.headers;
+  const ret = await event.pub(`${index}.special`, { value: body }, traceId);
+
+  // 错误处理
+
+  if (!ret.success) {
+    if (ret.deny) {
+      console.log(ret);
+      util.send403(ctx, ret.message);
+      return;
+    } else {
+      util.send504(ctx, ret);
+      return;
+    }
+  }
+
+  // 返回结果
+
+  util.send200(ctx);
+});
+
 router.get(`/leader`, async (ctx) => {
   // 获取当前人员
   const user = coreAuth.analysUser(ctx);

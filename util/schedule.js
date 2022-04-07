@@ -2,6 +2,7 @@ const schedule = require("node-schedule");
 const es = require(`./es`);
 const moment = require(`moment`);
 const setting = require("./setting");
+const push = require(`../util/push`);
 
 async function run() {
   const rule = new schedule.RecurrenceRule();
@@ -23,23 +24,23 @@ async function run() {
       });
 
       const docs = await es.getDocs(`engage`, query);
-
+      const data = await push.postToken();
       for (let doc of docs) {
         if (doc.push == true) continue;
         await push.send(JSON.parse(data).access_token, {
-          topic: item.creator.id,
+          topic: doc.creator.id,
           title: "预约提醒",
-          msg: `10分钟后 预约领导 ${item.target.name} `,
+          msg: `10分钟后 预约 ${doc.target.name} `,
         });
 
         await push.send(JSON.parse(data).access_token, {
-          topic: item.creator.id,
+          topic: doc.target.id,
           title: "接见提醒",
-          msg: `10分钟后 接见 ${item.creator.name} `,
+          msg: `10分钟后 接见 ${doc.creator.name} `,
         });
 
         doc.push = true;
-        await es.index(`engage`);
+        await es.index(`engage`, doc);
       }
     }
 
