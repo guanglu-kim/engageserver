@@ -19,7 +19,7 @@ async function initData() {
     value: {
       token: 10,
       refreshToken: 60,
-      systenName: `我只到了 刷新的不是我的值`,
+      systenName: `预约办公`,
       tablePageSize: 20,
     },
   });
@@ -29,6 +29,13 @@ async function initData() {
     value: {
       activeUserRule: 15,
       activeFunctionRule: 15,
+    },
+  });
+
+  await setting.initSetting({
+    key: `schedule`,
+    value: {
+      keepDays: 3,
     },
   });
 }

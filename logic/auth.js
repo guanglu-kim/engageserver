@@ -23,6 +23,7 @@ async function initData() {
     list: [
       `setting.base`,
       `setting.active`,
+      `setting.schedule`,
       `account.add`,
       `account.list`,
       `org`,
