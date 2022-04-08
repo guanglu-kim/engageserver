@@ -82,7 +82,8 @@ async function init() {
   event.sub(index, `${index}.special`, async (payload) => {
     const { value } = payload;
     const { engages } = value;
-    const reason = value.reason != `` ? reason : `特殊事件`;
+    const reason = value.reason != `` ? value.reason : `特殊事件`;
+
     const data = await push.postToken();
     var once = true;
 
