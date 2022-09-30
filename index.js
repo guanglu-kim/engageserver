@@ -25,7 +25,7 @@ process.env.TZ = `Asia/Shanghai`;
 
 // cors
 
-const cors = require("koa-cors");
+const cors = require("koa2-cors");
 app.use(cors({ methods: [`GET`, `POST`, `DELETE`, `PUT`, `PATCH`, `HEAD`] }));
 
 // 记录中间件
@@ -108,7 +108,7 @@ const options = {
 
 app.use(sslify());
 
-https.createServer(options, app.callback()).listen(3004, (err) => {
+https.createServer(options, app.callback()).listen(3014, (err) => {
   if (err) {
     console.log(`服务器启动出错`);
     console.log(err);
@@ -121,9 +121,9 @@ https.createServer(options, app.callback()).listen(3004, (err) => {
 // http
 
 const http = require(`http`);
-http.createServer(app.callback()).listen(3005);
+http.createServer(app.callback()).listen(3015);
 
-module.exports = app.listen(3006);
+module.exports = app.listen(3016);
 
 // 初始化 schedule
 
